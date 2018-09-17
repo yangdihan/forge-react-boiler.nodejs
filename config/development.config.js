@@ -3,7 +3,8 @@
 // DEVELOPMENT configuration
 //
 /////////////////////////////////////////////////////////////////////
-const HOST_URL = process.env.HOST_URL ||  'http://localhost'
+//const HOST_URL = process.env.HOST_URL ||  'http://localhost'
+const HOST_URL = 'http://localhost'
 const PORT = process.env.PORT || 3000
 
 const config = {
@@ -27,8 +28,8 @@ const config = {
       accessTokenUri: '/authentication/v1/gettoken',
 
       baseUri: 'https://developer.api.autodesk.com',
-      clientSecret: process.env.FORGE_DEV_CLIENT_SECRET,
-      clientId: process.env.FORGE_DEV_CLIENT_ID,
+      clientSecret: 'nc4U35G6ECP17N47',
+      clientId: 'GI2zbvtCGJJMdPljNcvjbADdNj53S4GQ',
 
       scope: [
         'data:read',

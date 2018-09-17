@@ -197,7 +197,7 @@ function runServer(app) {
     })
 
     const server = app.listen(
-      process.env.PORT || config.server_port || 3000, () => {
+      process.env.PORT || config.server_port || 3000, 'localhost', () => {
 
         const socketSvc = new SocketSvc({
           session,

@@ -7,6 +7,7 @@
     "build-prod": "cross-env NODE_ENV=production npm run build",
     "build": "npm run clean && node webpack",
     "postinstall": "npm run build-server",
+    "dev": "NODE_ENV=development HOT_RELOAD=true node bin/start.js",
     "start": "node bin/start.js",
     "clean": "rimraf dist"
   },
