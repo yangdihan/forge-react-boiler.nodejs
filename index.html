@@ -24,7 +24,6 @@
     <div id="MyViewerDiv"></div>
 
     <!-- The Viewer JS -->
-    <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/three.min.js"></script>
     <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/viewer3D.min.js"></script>
 
     <!-- Developer JS -->
@@ -32,8 +31,23 @@
         var viewer;
         var options = {
             env: 'AutodeskProduction',
-            accessToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6Imp3dF9zeW1tZXRyaWNfa2V5In0.eyJjbGllbnRfaWQiOiJHSTJ6YnZ0Q0dKSk1kUGxqTmN2amJBRGROajUzUzRHUSIsImV4cCI6MTUzNzEzNDUzOCwic2NvcGUiOlsiZGF0YTpyZWFkIiwiZGF0YTp3cml0ZSIsImJ1Y2tldDpjcmVhdGUiLCJidWNrZXQ6cmVhZCJdLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbS9hdWQvand0ZXhwNjAiLCJqdGkiOiJUNWtUWlZPNGtxS2diMXM3TUxybDZLR3A2MXRmMTRYclFTNDVMcWFWM3ZCdUdybTZQcTNnRldhclBHQTFYWWtOIn0.Bfq8PWZoBXS5j7KwbdGKrcGyVHJ1EiK69PelsKOJLTU'
-        };
+            getAccessToken: function(onGetAccessToken) {
+        //
+        // TODO: Replace static access token string below with call to fetch new token from your backend
+        // Both values are provided by Forge's Authentication (OAuth) API.
+        //
+        // Example Forge's Authentication (OAuth) API return value:
+        // {
+        //    "access_token": "<YOUR_APPLICATION_TOKEN>",
+        //    "token_type": "Bearer",
+        //    "expires_in": 86400
+        // }
+        //
+            var accessToken = 'eyJhbGciOiJIUzI1NiIsImtpZCI6Imp3dF9zeW1tZXRyaWNfa2V5In0.eyJjbGllbnRfaWQiOiJHSTJ6YnZ0Q0dKSk1kUGxqTmN2amJBRGROajUzUzRHUSIsImV4cCI6MTUzNzIyNTkwNCwic2NvcGUiOlsiZGF0YTpyZWFkIiwiZGF0YTp3cml0ZSIsImJ1Y2tldDpjcmVhdGUiLCJidWNrZXQ6cmVhZCJdLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbS9hdWQvand0ZXhwNjAiLCJqdGkiOiJUMUxGTDNZOTBsb2VsM2t1Yk9tT3dhQU9JVDNkNFdpbmNpVWw3cDBZSERFRXRBaVFhMndjbG5kRUVFbHQ2Q3U5In0.BsNLNlvpXmEOKLOCe4QxUQ3pSc7jflXH13_0OkcYW5Y';
+            var expireTimeSeconds = 86400;
+            onGetAccessToken(accessToken, expireTimeSeconds);
+        }
+    }
         var documentId = 'urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6bmV3bW9kZWwvcnN0X2FkdmFuY2VkX3NhbXBsZV9wcm9qZWN0LnJ2dA==';
         Autodesk.Viewing.Initializer(options, function onInitialized(){
             Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
